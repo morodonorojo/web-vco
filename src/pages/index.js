@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Image from "next/image";
+import { manfaatVCOList } from "../data/manfaat-data";
 
 export default function Home() {
   return (
@@ -13,7 +14,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <section className="hero w-full h-screen mx-auto relative">
-        <div className="absolute text-white p-12 z-10 max-w-sm">
+        <div className="absolute text-white p-8 z-10 max-w-sm">
           <h1 className=" text-2xl mb-1">Virgin Coconut Oil</h1>
           <p className="text-sm">
             Virgin Coconut Oil (VCO) adalah minyak yang berasal dari sari pati
@@ -28,6 +29,29 @@ export default function Home() {
             objectFit="cover"
             className="rounded-bl-3xl rounded-br-3xl"
           />
+        </div>
+      </section>
+      <section className="manfaat w-full h-screen mx-auto relative">
+        <div className="text-black p-8 z-10 max-w-sm">
+          <h1 className=" text-2xl mb-1">Manfaat VCO</h1>
+          <div className="manfaat-list mt-2">
+            {manfaatVCOList.map((manfaatVCO, index) => {
+              return (
+                <div key={index} className="flex flex-row items-center mb-2">
+                  <div className="h-8 w-8 mr-2">
+                    <Image
+                      src={manfaatVCO.icon}
+                      height={48}
+                      width={48}
+                      alt="Logo icon"
+                    />
+                  </div>
+
+                  <p className="w-full">{manfaatVCO.text}</p>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </section>
     </main>
