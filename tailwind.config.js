@@ -9,6 +9,10 @@ module.exports = {
       colors: {
         black: "#1D1815",
       },
+      fontFamily: {
+        main: "Abril Fatface",
+        body: "Poppins",
+      },
     },
   },
   plugins: [],
