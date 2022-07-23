@@ -1,7 +1,13 @@
 import Head from "next/head";
 import Image from "next/image";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { FreeMode } from "swiper";
+
 import { manfaatVCOList } from "../data/manfaat-data";
 import { produkOlahanVCO } from "../data/produk-olahan";
+
+import "swiper/css";
+import "swiper/css/free-mode";
 
 export default function Home() {
   return (
@@ -55,40 +61,53 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className="produk olahan w-full max-w-sm h-screen mx-auto relative">
+      <section className="produk olahan w-full max-w-sm mx-auto relative">
         <div className="text-black p-8 z-10 ">
           <h1 className=" text-2xl mb-1">Produk Olahan VCO</h1>
-          <div className="manfaat-list mt-2">
-            {produkOlahanVCO.map((produk, index) => {
-              return (
-                <div
-                  key={index}
-                  className="rounded-2xl relative w-48 h-72 overflow-hidden bg-slate-300"
-                  style={{ boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px" }}
-                >
-                  <div className="absolute h-full w-full z-0">
-                    <Image
-                      src={produk.src}
-                      alt={`Foto ${produk.namaProduk}`}
-                      layout="fill"
-                      objectFit="cover"
-                    />
-                  </div>
-                  <div
-                    className="black-overlay absolute w-full h-full z-10"
-                    style={{
-                      background:
-                        "linear-gradient(180.06deg, rgba(255, 255, 255, 0) 0.05%, #1E1E1E 170.97%)",
-                    }}
-                  />
-                  <div className="relative p-4 h-full w-full z-20 flex items-end">
-                    <p className="text-right w-full font-main text-white text-xl tracking-wide">
-                      {produk.namaProduk}
-                    </p>
-                  </div>
-                </div>
-              );
-            })}
+          <div className="produkolahan-list mt-2">
+            <Swiper
+              spaceBetween={20}
+              centeredSlides={true}
+              slidesPerView={1}
+              freeMode={true}
+              pagination={{
+                clickable: true,
+              }}
+              modules={[FreeMode]}
+              className="child:child:!w-min"
+            >
+              {produkOlahanVCO.map((produk, index) => {
+                return (
+                  <SwiperSlide key={index}>
+                    <div
+                      className="rounded-2xl relative w-48 h-72 overflow-hidden bg-slate-300"
+                      style={{ boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px" }}
+                    >
+                      <div className="absolute h-full w-full z-0">
+                        <Image
+                          src={produk.src}
+                          alt={`Foto ${produk.namaProduk}`}
+                          layout="fill"
+                          objectFit="cover"
+                        />
+                      </div>
+                      <div
+                        className="black-overlay absolute w-full h-full z-10"
+                        style={{
+                          background:
+                            "linear-gradient(180.06deg, rgba(255, 255, 255, 0) 0.05%, #1E1E1E 170.97%)",
+                        }}
+                      />
+                      <div className="relative p-4 h-full w-full z-20 flex items-end">
+                        <p className="text-right w-full font-main text-white text-xl tracking-wide">
+                          {produk.namaProduk}
+                        </p>
+                      </div>
+                    </div>
+                  </SwiperSlide>
+                );
+              })}
+            </Swiper>
           </div>
         </div>
       </section>
