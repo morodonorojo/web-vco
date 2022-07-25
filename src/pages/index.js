@@ -8,6 +8,7 @@ import { produkOlahanVCO } from "../data/produk-olahan";
 
 import "swiper/css";
 import "swiper/css/free-mode";
+import { caraPembuatanVCO } from "../data/cara-pembuatan";
 
 export default function Home() {
   return (
@@ -21,7 +22,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <section className="hero w-full h-screen mx-auto relative">
-        <div className="absolute text-white p-8 z-10 max-w-sm">
+        <div className="absolute text-white p-8 z-10 max-w-xl">
           <h1 className=" text-2xl mb-1">Virgin Coconut Oil</h1>
           <p className="text-sm">
             Virgin Coconut Oil (VCO) adalah minyak yang berasal dari sari pati
@@ -38,7 +39,7 @@ export default function Home() {
           />
         </div>
       </section>
-      <section className="manfaat w-full max-w-sm h-screen mx-auto relative">
+      <section className="manfaat w-full max-w-xl mx-auto relative">
         <div className="text-black p-8 z-10 ">
           <h1 className=" text-2xl mb-1">Manfaat VCO</h1>
           <div className="manfaat-list mt-2">
@@ -61,7 +62,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className="produk olahan w-full max-w-sm mx-auto relative">
+      <section className="produk olahan w-full max-w-xl mx-auto relative">
         <div className="text-black p-8 z-10 ">
           <h1 className=" text-2xl mb-1">Produk Olahan VCO</h1>
           <div className="produkolahan-list mt-2">
@@ -104,6 +105,31 @@ export default function Home() {
                         </p>
                       </div>
                     </div>
+                  </SwiperSlide>
+                );
+              })}
+            </Swiper>
+          </div>
+        </div>
+      </section>
+      <section className="cara pembuatan w-full max-w-xl mx-auto relative bg-brown rounded-tl-2xl rounded-tr-2xl">
+        <div className="text-white p-8 z-10">
+          <h1 className=" text-2xl mb-1">Cara Pembuatan</h1>
+          <div className="manfaat-list mt-2">
+            <Swiper>
+              {caraPembuatanVCO.map((cara, index) => {
+                return (
+                  <SwiperSlide key={index}>
+                    <h3 className="mb-2">Langkah {index + 1}</h3>
+                    <div className="relative">
+                      <Image
+                        src={cara.src}
+                        alt={`Cara pembuatan VCO langkah ke-${index + 1}`}
+                        height={452}
+                        width={678}
+                      />
+                    </div>
+                    <p className="text-sm">{cara.explanation}</p>
                   </SwiperSlide>
                 );
               })}

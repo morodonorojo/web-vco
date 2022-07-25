@@ -8,6 +8,7 @@ module.exports = {
     extend: {
       colors: {
         black: "#1D1815",
+        brown: "#2E1F1B",
       },
       fontFamily: {
         main: "Abril Fatface",
