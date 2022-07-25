@@ -9,6 +9,7 @@ import { produkOlahanVCO } from "../data/produk-olahan";
 import "swiper/css";
 import "swiper/css/free-mode";
 import { caraPembuatanVCO } from "../data/cara-pembuatan";
+import { caraPenggunaanVCO } from "../data/cara-penggunaan";
 
 export default function Home() {
   return (
@@ -112,7 +113,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className="cara pembuatan w-full max-w-xl mx-auto relative bg-brown rounded-tl-2xl rounded-tr-2xl">
+      <section className="cara-pembuatan w-full max-w-xl mx-auto relative bg-brown rounded-tl-2xl rounded-tr-2xl">
         <div className="text-white p-8 z-10">
           <h1 className=" text-2xl mb-1">Cara Pembuatan</h1>
           <div className="manfaat-list mt-2">
@@ -134,6 +135,20 @@ export default function Home() {
                 );
               })}
             </Swiper>
+          </div>
+        </div>
+        <div className="text-white p-8 z-10">
+          <h1 className=" text-2xl mb-1">Cara Peggunaan</h1>
+          <div className="manfaat-list mt-2">
+            <ul className="list-disc">
+              {caraPenggunaanVCO.map((penggunaan, index) => {
+                return (
+                  <li key={index}>
+                    <p className="mb-2">{penggunaan.text}</p>
+                  </li>
+                );
+              })}
+            </ul>
           </div>
         </div>
       </section>
